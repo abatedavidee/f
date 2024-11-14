@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape Room - Programmazione Concorrente</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+ 
+<div class="container">
+    <h1>Escape Room: Programmazione Concorrente</h1>
+    <h6>Risolvi il problema di sincronizzazione per uscire!</h6>
+
+    <!-- Introduzione al problema di programmazione concorrente -->
+    <p id="instructions">Benvenuto nell'escape room della programmazione! I due processi stanno tentando di scrivere su una risorsa condivisa. Se non sincronizzati correttamente, otterrai un errore. Scopri come correggerlo per sbloccare la porta!</p>
+
+    <!-- Testo che introduce il codice da sistemare -->
+    <h2 id="codeTitle">Codice da risolvere</h2>
+
+    <!-- Codice da correggere -->
+    <pre id="codeBlock">
+    <code>
+    let counter = 0; // Risorsa condivisa
+    
+    function process1() {
+        for (let i = 0; i < 5; i++) {
+            counter++; // Questa operazione deve essere protetta
+        }
+    }
+    
+    function process2() {
+        for (let i = 0; i < 5; i++) {
+            counter++; // Anche questa deve essere sincronizzata
+        }
+    }
+    
+    process1();
+    process2();
+    
+    console.log(counter); // Qual è il valore di counter alla fine?
+    </code>
+    </pre>
+
+    <p id="instructions">Il valore di <code>counter</code> dovrebbe essere 10, ma a causa della race condition, il valore potrebbe essere errato. Come correggi questo problema?</p>
+
+    <!-- Area di risposta con stile da ambiente di sviluppo -->
+    <div class="code-input">
+        <label for="fixAnswer">Scrivi il codice per risolvere la race condition:</label>
+        <textarea id="fixAnswer" name="fixAnswer" placeholder="Esempio: Utilizza un mutex per sincronizzare i processi..." rows="10" required></textarea>
+    </div>
+
+    <!-- Bottone per inviare la risposta -->
+    <button type="submit" id="submitAnswer" class="btn-submit">Invia Soluzione</button>
+
+    <!-- Risultato del quiz -->
+    <div id="result"></div>
+
+    <!-- Bottone per andare alla pagina successiva, inizialmente nascosto -->
+    <a id="goToNextLevelLink" href="EscapeRoomProssimoLivello.html" class="hidden">
+        <button id="nextButton" class="btn-next">Sblocca la porta!</button>
+    </a>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
